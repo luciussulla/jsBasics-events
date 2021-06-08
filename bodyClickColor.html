@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 100%; 
+            height: 100vh; 
+            /* background-color: yellow; */
+        }
+    </style>
+</head>
+<body>
+    <div class="screen"></div>
+    <script>
+        console.log("start")
+        let body = document.querySelector('body')
+        body.addEventListener('click', calculate)
+        function calculate(e) { 
+            const xPos = e.clientX
+            const yPos = e.clientY
+            console.log(xPos, yPos)
+            let clr = "yellow"
+            if (xPos % 2 == 0 && yPos % 2 == 0) {
+                console.log("both even")
+                clr= "green"
+                console.log(clr)
+            } else if (xPos%2 !=0 && yPos%2!=0) {
+               clr= "red"
+               console.log("on odd")
+            } else  {
+                clr = "blue"
+                console.log("even and odd")
+            }
+            document.body.style.backgroundColor = clr
+        }
+    </script>
+</body>
+</html>

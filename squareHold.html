@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 100%; 
+            height: 100vh; 
+            /* background-color: yellow; */
+        }
+        .square {
+            /* width: 30px; 
+            height: 30px;  */
+            background-color: black;
+            /* position: absolute;
+            top: 100px; 
+            left: 100px;  */
+        }
+    </style>
+</head>
+<body>
+    <div class="square"></div>
+    <script>
+            const square = document.querySelector('.square')
+            square.addEventListener('mousemove', moveIt)
+            square.style.width = "50px"
+            square.style.height = "50px"
+            square.style.position = "absolute"
+
+            let insideDivX
+            let insideDivY
+
+            let isMouseDown = false
+
+            square.addEventListener('mousedown', mouseDown)
+            square.addEventListener('mouseup', mouseUp)
+
+            function mouseDown(e) {
+                isMouseDown = true
+                // insideDivX = e.offsetX
+                // insideDivY = e.offsetY
+                insideDivX = e.clientX - square.offsetLeft
+                insideDivY = e.clientY - square.offsetTop
+
+                console.log("MOuse is: "+isMouseDown)
+            }
+
+            function mouseUp() {
+                isMouseDown = false
+                console.log("MOuse is: "+isMouseDown)
+            }
+
+            function moveIt(e) {
+                if(isMouseDown) {
+                    // console.log("square x " + squareX)
+                    // console.log("square y " + squareY)
+                    
+                    // console.log("inside square x " + xInsideSquare)
+                    // console.log("inside square y " + yInsideSquare)
+                
+                    square.style.left = (e.clientX-insideDivX) + "px"
+                    square.style.top  = (e.clientY-insideDivY) + "px"
+                }
+            }
+    </script>
+</body>
+</html>

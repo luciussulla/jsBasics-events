@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 100%; 
+            height: 100vh; 
+            /* background-color: yellow; */
+        }
+     
+    </style>
+</head>
+<body>
+    
+    <script>
+            const body = document.querySelector('body')
+            body.addEventListener('keydown', shade) 
+            let i = 100; 
+            function shade(e) {
+                console.log("inside shade")
+                console.log(e.key)
+
+                if (e.key == "ArrowUp") {
+                    if (i<=100) i++
+                    body.style.backgroundColor = `hsl(${i}, ${i}%, ${i}%)`
+                    console.log(i)
+                }
+                if (e.key == "ArrowDown") {
+                    if (i>=0) i--
+                    body.style.backgroundColor = `hsl(${i}, ${i}%, ${i}%)`
+                    console.log(i)
+                }
+            }
+    </script>
+</body>
+</html>
